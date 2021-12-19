@@ -36,23 +36,27 @@ namespace MoYu
             
             InitializeComponent();
 
-            //float ScaleX = 1;
-            //float ScaleY = 1;
+            float ScaleX = 1;
+            float ScaleY = 1;
 
-            //System.Drawing.Graphics Graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
-            //ScaleX = Graphics.DpiX / 96;
-            //ScaleY = Graphics.DpiY / 96;
-            //this.Width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / ScaleX;
-            //this.Height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / ScaleY;
+            System.Drawing.Graphics Graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
+            ScaleX = Graphics.DpiX / 96;
+            ScaleY = Graphics.DpiY / 96;
+            this.Width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / ScaleX;
+            this.Height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / ScaleY;
+            Left = 0;
+            Top = 0;
 
 
-            Left = scr.WorkingArea.Left;
-            Top = scr.WorkingArea.Top;
-            Width = scr.Bounds.Width;
-            Height = scr.Bounds.Height;
+            //Width = scr.Bounds.Width;
+            //Height = scr.Bounds.Height;
+            //Left = scr.Bounds.Left;
+            //Top = scr.Bounds.Top;
+
+           
             //this.Width = 50;
 
-
+             Topmost = true;
             int? windowsVersion = GetWindowsMajorVersion();
 
 

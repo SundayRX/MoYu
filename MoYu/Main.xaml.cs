@@ -68,7 +68,7 @@ namespace MoYu
 
                 WindowsUpdate windowsUpdate = new WindowsUpdate(scr,updateProgress);
                 windowsUpdate.Show();
-
+                break;
 
 
             }
