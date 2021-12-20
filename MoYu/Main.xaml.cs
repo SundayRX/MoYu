@@ -25,6 +25,24 @@ namespace MoYu
         {
             InitializeComponent();
             this.Version.Text =Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+
+
+        }
+        public static Size GetDpiFromVisual(Visual visual)
+        {
+            var source = PresentationSource.FromVisual(visual);
+
+            var dpiX = 96.0;
+            var dpiY = 96.0;
+
+            if (source?.CompositionTarget != null)
+            {
+                dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
+                dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
+            }
+
+            return new Size(dpiX, dpiY);
         }
 
         private void Close_MouseUp(object sender, MouseButtonEventArgs e)
@@ -63,16 +81,20 @@ namespace MoYu
         {
             Model.UpdateProgress updateProgress= new Model.UpdateProgress();
 
+            List<WindowsUpdate> windowsUpdates= new List<WindowsUpdate>();
             foreach (System.Windows.Forms.Screen scr in System.Windows.Forms.Screen.AllScreens)
             {
 
                 WindowsUpdate windowsUpdate = new WindowsUpdate(scr,updateProgress);
-                windowsUpdate.Show();
-                break;
+                windowsUpdates.Add(windowsUpdate);
+                
 
 
             }
-
+            foreach(WindowsUpdate var in windowsUpdates)
+            {
+                var.Show();
+            }
             this.Close();
         }
        
