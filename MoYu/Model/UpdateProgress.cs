@@ -46,6 +46,8 @@ namespace MoYu.Model
         public CommandBase KeyDownCommand { get; set; }
         public UpdateProgress()
         {
+            SetThreadExecutionState((uint)(0x1|0x2|0x80000000));
+
             IntPtr hModule = GetModuleHandle(IntPtr.Zero);
             hookProc = new LowLevelKeyboardProcDelegate(LowLevelKeyboardProc);
             hHook = SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, hModule, 0);
@@ -137,6 +139,9 @@ namespace MoYu.Model
             int time;
             int dwExtraInfo;
         }
+
+        [DllImport("kernel32.dll")]
+        static extern uint SetThreadExecutionState(uint flags);
 
         private delegate int LowLevelKeyboardProcDelegate(int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam);
 

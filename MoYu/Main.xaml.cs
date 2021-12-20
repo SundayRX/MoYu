@@ -29,21 +29,6 @@ namespace MoYu
 
 
         }
-        public static Size GetDpiFromVisual(Visual visual)
-        {
-            var source = PresentationSource.FromVisual(visual);
-
-            var dpiX = 96.0;
-            var dpiY = 96.0;
-
-            if (source?.CompositionTarget != null)
-            {
-                dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
-                dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
-            }
-
-            return new Size(dpiX, dpiY);
-        }
 
         private void Close_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -56,6 +41,10 @@ namespace MoYu
         private void GitHub2_MouseUp(object sender, MouseButtonEventArgs e)
         {
             OpenUrl("https://github.com/DinoChan/Loaf");
+        }
+        private void GitHub3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            OpenUrl("https://github.com/JiaFeiMiao-K-Cat");
         }
         private static void OpenUrl(string? o)
         {
@@ -94,6 +83,7 @@ namespace MoYu
             foreach(WindowsUpdate var in windowsUpdates)
             {
                 var.Show();
+                var.WindowState = WindowState.Maximized;
             }
             this.Close();
         }

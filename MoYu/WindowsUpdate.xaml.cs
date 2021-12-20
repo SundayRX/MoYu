@@ -32,56 +32,43 @@ namespace MoYu
         Control View = null;
         public WindowsUpdate(System.Windows.Forms.Screen scr,Model.UpdateProgress updateProgress)
         {
-    
-            
             InitializeComponent();
 
-            //float ScaleX = 1;
-            //float ScaleY = 1;
-
-            //System.Drawing.Graphics Graphics = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
-            //ScaleX = Graphics.DpiX / 96;
-            //ScaleY = Graphics.DpiY / 96;
-            //this.Width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / ScaleX;
-            //this.Height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / ScaleY;
-            //Left = 0;
-            //Top = 0;
-
-
-            //Width = scr.Bounds.Width;
-            //Height = scr.Bounds.Height;
-
-            Left = scr.Bounds.Left ;
+            Left = scr.Bounds.Left;
             Top = scr.Bounds.Top;
-            this.WindowState = System.Windows.WindowState.Maximized; 
-           Topmost = true;
-            //this.Width = 50;
 
-             
+            Topmost = true;
 
-            int? windowsVersion = GetWindowsMajorVersion();
-
-
-            if (windowsVersion == 7)
+            if (scr.Primary)
             {
-                View = new Pages.Update5();
-            }
-            else if (windowsVersion == 10)
-            {
-                View = new Pages.Update2();
+                int? windowsVersion = GetWindowsMajorVersion();
+
+
+                if (windowsVersion == 7)
+                {
+                    View = new Pages.Update5();
+                }
+                else if (windowsVersion == 10)
+                {
+                    View = new Pages.Update2();
+                }
+                else
+                {
+                    View = new Pages.Update1();
+                }
+
+
+                this.BACK.Child = View;
+                View.DataContext = updateProgress;
+
+                if (windowsVersion != 7)
+                    ShowCursor(0);
             }
             else
-            {
-                View = new Pages.Update1();
+            { 
+                this.BACK.Background=new SolidColorBrush(Color.FromRgb(0, 0, 0));
             }
-
-    
-            this.BACK.Child = View;
-            View.DataContext = updateProgress;
-
-            if(windowsVersion!=7)
-                ShowCursor(0);
-
+ 
 
         }
 
@@ -141,8 +128,6 @@ namespace MoYu
 
         [DllImport("user32.dll", EntryPoint = "ShowCursor", CharSet = CharSet.Auto)]
         public extern static void ShowCursor(int status);
-
-
 
     }
 }

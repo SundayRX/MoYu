@@ -59,6 +59,7 @@
 
             
             <TextBlock x:Name="GitHub1" Margin="10,0,0,20" Text="GitHub" Foreground="#555555" HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand" MouseUp="GitHub1_MouseUp"/>
+            <TextBlock x:Name="GitHub3" Margin="60,0,0,20" Text="协作-钾肥猫" Foreground="#555555" HorizontalAlignment="Left" VerticalAlignment="Bottom" Cursor="Hand" MouseUp="GitHub3_MouseUp"/>
             <StackPanel Orientation="Horizontal" Margin="10,0,0,5" VerticalAlignment="Bottom">
                 <TextBlock  Text="MoYu - " Foreground="#555555" />
                 <TextBlock  x:Name="Version" Foreground="#555555"/>

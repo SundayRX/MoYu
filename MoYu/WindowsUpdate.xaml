@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Pages="clr-namespace:MoYu.Pages"
         xmlns:local="clr-namespace:MoYu" ResizeMode="NoResize" 
-        mc:Ignorable="d" Topmost="True" WindowStyle="None" AllowsTransparency="True" 
-        Title="WindowsUpdate" Width="600" Height="900"  >
+        mc:Ignorable="d" Topmost="True" WindowStyle="None" AllowsTransparency="True"
+        Title="WindowsUpdate" Width="300" Height="300">
 
 
     <Border x:Name="BACK">
