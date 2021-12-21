@@ -14,7 +14,7 @@
 
 注：Windows10/11加载动画来源于[DinoChan.Loaf](https://github.com/DinoChan/Loaf) 
   
-基于.NET 6.0 WPF呈现 以及使用MVVM进行数据实时更新  
+基于.NET 5.0 WPF呈现 以及使用MVVM进行数据实时更新  
   
 通过调用WMI组件区分Windows10和Winodws11  
   
