@@ -2,7 +2,7 @@
 打开软件并单击左侧动画后，你的电脑屏幕会显示系统更新的界面，借此机会你可以心安理得的享受一段摸鱼时光  
   
 # 安装使用
-请先下载并安装运行所必须的支持环境 [.NET Desktop Runtime 6.0.X x64/Arm64](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
+请先下载并安装运行所必须的支持环境 [.NET Desktop Runtime 5.0.X x86](https://dotnet.microsoft.com/en-us/download/dotnet/5.0/runtime)
 # 功能特性
 **1.自动检测并适配Windows7/10(主题色)/11，显示对应系统的更新界面**  
   
