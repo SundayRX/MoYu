@@ -24,3 +24,12 @@
 不能阻止Ctrl+Alt+Del弹出  
   
 Win7的更新界面字体阴影效果显示一般般，没有实现左上角的键盘按钮  
+
+# 开放源代码许可
+[Microsoft.Xaml.Behaviors.Wpf](https://github.com/Microsoft/XamlBehaviorsWpf) 
+
+[System.Drawing.Common](https://dot.net) 
+
+[System.Management](https://dot.net) 
+
+[XamlAnimatedGif](https://github.com/XamlAnimatedGif/XamlAnimatedGif) 
