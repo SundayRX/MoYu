@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>E:\MoYu\MoYu\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Controls\Loading.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Imitators\Win10\Crash.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Imitators\Win11\Update.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Imitators\Win10\Update.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Imitators\Win10\Upgrade.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Imitators\Win7\Update.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PresenterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assets\SVG.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Loading.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win10\Crash.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win11\Crash.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win11\Update.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win10\Update.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win10\Upgrade.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Imitators\Win7\Update.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PresenterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
