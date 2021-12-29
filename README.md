@@ -2,7 +2,14 @@
 打开软件并单击左侧动画后，你的电脑屏幕会显示系统更新的界面，借此机会你可以心安理得的享受一段摸鱼时光  
   
 # 安装使用
-请先下载并安装运行所必须的支持环境 [.NET Desktop Runtime 5.0.X x86](https://dotnet.microsoft.com/en-us/download/dotnet/5.0/runtime)
+
+## 现已上架微软商店（版本落后）
+前往微软商店安装[MoYu APP](https://www.microsoft.com/store/productId/9NBTJ8SZ31QF) 
+
+## 绿色免安装版
+ 请先下载并安装运行所必须的支持环境 [.NET Desktop Runtime 5.0.X x86](https://dotnet.microsoft.com/en-us/download/dotnet/5.0/runtime)  
+ 下载GitHub Release 最新版直接使用
+
 # 功能特性
 **1.支持自选择摸鱼屏保 系统更新 系统升级 系统蓝屏**
 
