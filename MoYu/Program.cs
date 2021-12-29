@@ -30,7 +30,6 @@ namespace MoYu
         }
         private static void TaskSchedulerUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
-
             e.SetObserved();
         }
     }

@@ -31,8 +31,8 @@
 
 
             <StackPanel Margin="20,62,0,0" Orientation="Horizontal">
-                <TextBlock Text="屏保：" FontSize="15" FontWeight="Bold" Foreground="#333366"/>
-                <TextBlock x:Name="ModeText" Text="系统更新" FontSize="15" FontWeight="Bold" Foreground="#333366"/>
+                <TextBlock Text="屏保：" FontSize="13" FontWeight="Bold" Foreground="#333366"/>
+                <TextBlock x:Name="ModeText" Text="系统更新" FontSize="13" FontWeight="Bold" Foreground="#333366"/>
                 <TextBlock Text="A" FontSize="15" FontWeight="Bold"  Foreground="Transparent"/>
                 <Image x:Name="ModeSwitch"  Margin="0,3,0,0"  Width="15" Height="15"  Source="{StaticResource Switch}" VerticalAlignment="Top" Cursor="Hand" MouseUp="ModeSwitch_MouseUp"/>
             </StackPanel>
@@ -57,7 +57,7 @@
                 </StackPanel>
                 <TextBlock Text=" 保存好工作资料 确保ESC键正常工作" Foreground="#FF3333" FontWeight="Bold"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock  Text=" 点击左侧动画开始享受" FontSize="13" Foreground="#333333"/>
+                    <TextBlock  Text=" 选择屏保，点击左侧动画开始享受" FontSize="13" Foreground="#333333"/>
                     <TextBlock  Text="摸鱼" FontSize="13" Foreground="#0071BC" FontWeight="Bold"/>
                     <TextBlock  Text="时光" FontSize="13" Foreground="#333333"/>
                 </StackPanel>
@@ -84,7 +84,7 @@
 
             <TextBlock x:Name="GitHub2" Margin="0,0,10,20" Text="加载动画基于DinoChan.Loaf" Foreground="#555555" HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="Hand" MouseUp="GitHub2_MouseUp"/>
             <TextBlock Margin="0,0,10,5" Text="Copyright © 2021-现在 SundayRX" Foreground="#555555" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <Border Margin="20,40,0,0" HorizontalAlignment="Left" Height="150" Width="150"  BorderBrush="#dddddd" BorderThickness="1,1,1,0" CornerRadius="10,10,40,45">
+            <Border Margin="20,40,0,0" HorizontalAlignment="Left" Height="150" Width="150"  BorderBrush="#ffffff" BorderThickness="1,1,1,0" CornerRadius="10,10,40,45">
                 <Image gif:AnimationBehavior.SourceUri="../Assets/MoYu.gif" Cursor="Hand" MouseUp="Image_MouseUp"  />
             </Border>
         </Grid>
