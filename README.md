@@ -3,7 +3,7 @@
   
 # 安装使用
 
-## 现已上架微软商店（可能会版本落后）
+## 现已上架微软商店（版本可能落后）
 前往微软商店安装[MoYu APP](https://www.microsoft.com/store/productId/9NBTJ8SZ31QF) 
 
 ## 绿色免安装版
