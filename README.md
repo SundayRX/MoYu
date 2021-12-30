@@ -1,4 +1,4 @@
-# MoYu (这是一款能够帮助你在工作时摸鱼的欢乐软件)
+# MoYu (一款能够帮助你在工作时摸鱼的欢乐软件)
 打开软件并单击左侧动画后，你的电脑屏幕会显示系统更新的界面，借此机会你可以心安理得的享受一段摸鱼时光  
 
 <img width="400" height="250" src="/images/main.png"><img width="400" height="250" src="/images/win10update.png"/>
