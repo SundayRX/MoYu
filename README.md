@@ -4,7 +4,7 @@
 <img width="400" height="250" src="/images/main.png"><img width="400" height="250" src="/images/win10update.png"/>
 <img width="400" height="250" src="/images/win10upgrade.png"><img width="400" height="250" src="/images/win10crash.png"/>
 # 安装使用 （支持OS:Win7|Win10|Win11 Arch:x64|x86|Arm64|Arm）
-## 现已上架微软商店（版本可能落后）
+## 现已上架微软应用商店（版本可能落后）
 前往微软商店安装[MoYu APP](https://www.microsoft.com/store/productId/9NBTJ8SZ31QF) 
 
 ## 绿色免安装版
