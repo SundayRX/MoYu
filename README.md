@@ -30,9 +30,9 @@
   
 **4.支持最大限度的按键屏蔽 屏蔽除去ESC外的全部按键**  
   
-# 项目细节（参考[DinoChan.Loaf](https://github.com/DinoChan/Loaf)进行的内容补充及功能拓展）
+# 项目细节（参考[Loaf](https://github.com/DinoChan/Loaf)进行的内容补充及功能拓展）
 
-注：Windows10/11加载动画来源于[DinoChan.Loaf](https://github.com/DinoChan/Loaf) 
+注：Windows10/11加载动画来源于[Loaf](https://github.com/DinoChan/Loaf) 
   
 基于.NET 5.0 WPF呈现 以及使用MVVM进行数据实时更新  
   
