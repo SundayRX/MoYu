@@ -5,6 +5,7 @@ using System.Linq;
 using System.Management;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static MoYu.Tools.User32;
 
 namespace MoYu.View
 {
@@ -50,6 +52,20 @@ namespace MoYu.View
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            DISPLAYCONFIG_TOPOLOGY_ID topId=DISPLAYCONFIG_TOPOLOGY_ID.DISPLAYCONFIG_TOPOLOGY_INTERNAL;
+            try
+            {
+                QueryDisplayConfig(QDC.QDC_DATABASE_CURRENT, out var paths, out var modes, out topId);
+            }
+            catch { }
+            
+            if (topId == DISPLAYCONFIG_TOPOLOGY_ID.DISPLAYCONFIG_TOPOLOGY_CLONE && Mode == 3)
+            {
+                 Model.UpdateProgress.DISPLAYCONFIG_SDC = SDC.SDC_TOPOLOGY_CLONE;
+                 SetDisplayConfig(0, IntPtr.Zero, 0, IntPtr.Zero, SDC.SDC_APPLY | SDC.SDC_TOPOLOGY_EXTEND);
+            }
+                
+
             Control? Imitator = null;
             Model.UpdateProgress updateProgress= new Model.UpdateProgress();
 
@@ -70,8 +86,14 @@ namespace MoYu.View
             }
             else if (Mode == 3)
             {
-                 if (windowsVersion == 10)
-                    Imitator = new Imitators.Win10.Crash();
+                if (windowsVersion == 10)
+                {
+                    if(Thread.CurrentThread.CurrentCulture.Name.ToLower() =="en-us")
+                        Imitator = new Imitators.Win10.Crash.en_us();
+                    else
+                        Imitator = new Imitators.Win10.Crash.zh_cn();
+                }
+                    
                 else
                     Imitator = new Imitators.Win11.Crash();
             }
@@ -88,7 +110,7 @@ namespace MoYu.View
             {
                 PresenterView? presenterView = null;
                 
-                if (screen.Primary)
+                if (screen.Primary )
                      presenterView = new PresenterView(screen,Imitator,IsShowCursor);
                 else
                     presenterView = new PresenterView(screen,null,IsShowCursor);

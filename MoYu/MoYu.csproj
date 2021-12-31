@@ -32,12 +32,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Imitators\Win10\Crash\en-us.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Imitators\Win11\Crash.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Imitators\Win10\Crash\en-us.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Imitators\Win11\Crash.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

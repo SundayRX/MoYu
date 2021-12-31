@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using MoYu.Common;
+using MoYu.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,21 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
-
+using static MoYu.Tools.Kernel32;
+using static MoYu.Tools.User32;
 namespace MoYu.Model
 {
     public class UpdateProgress:NotifyBase
     {
+        private static IntPtr hHook=IntPtr.Zero;
+        public static SDC DISPLAYCONFIG_SDC = SDC.SDC_APPLY;
+
         private Thread BackThread;
         private double Precent=0;
-        private IntPtr hHook;
+
 
 
         private int progress;
-
         public int Progress
         {
             get { return progress; }
@@ -34,8 +38,8 @@ namespace MoYu.Model
             }
         }
 
-        private SolidColorBrush dWMColor=new SolidColorBrush(Color.FromRgb(0, 0, 0));
 
+        private SolidColorBrush dWMColor=new SolidColorBrush(Color.FromRgb(0, 0, 0));
         public SolidColorBrush DWMColor
         {
             get { return dWMColor; }
@@ -46,15 +50,15 @@ namespace MoYu.Model
         public CommandBase KeyDownCommand { get; set; }
         public UpdateProgress()
         {
-            SetThreadExecutionState((uint)(0x1|0x2|0x80000000));
+            Kernel32.SetThreadExecutionState(EXECUTION_STATE.ES_SYSTEM_REQUIRED | EXECUTION_STATE.ES_DISPLAY_REQUIRED | EXECUTION_STATE.ES_CONTINUOUS);
 
             IntPtr hModule = GetModuleHandle(IntPtr.Zero);
             hookProc = new LowLevelKeyboardProcDelegate(LowLevelKeyboardProc);
-            hHook = SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, hModule, 0);
+            hHook = SetWindowsHookEx(HookType.WH_KEYBOARD_LL, hookProc, hModule, 0);
 
             int? Temp = GetDWMColor();
-            if(Temp!=null)
-                DWMColor=new SolidColorBrush(Color.FromRgb((byte)(Temp & 0xFF), (byte)((Temp >> 8) & 0xFF), (byte)((Temp >> 16) & 0xFF)));
+            if (Temp != null)
+                DWMColor =new SolidColorBrush(Color.FromRgb((byte)(Temp & 0xFF), (byte)((Temp >> 8) & 0xFF), (byte)((Temp >> 16) & 0xFF)));
 
             this.MouseWheelCommand = new CommandBase();
             this.MouseWheelCommand.DoExecute = new Action<object>(DoMouseWheel);
@@ -72,8 +76,7 @@ namespace MoYu.Model
 
         ~UpdateProgress()
         {
-            if (hHook != IntPtr.Zero)
-                UnhookWindowsHookEx(hHook);
+
         }
         private void DoMouseWheel(object o)
         {
@@ -134,46 +137,31 @@ namespace MoYu.Model
         private static int GetRandomValue(int MinValue, int MaxValue)
         {
             if (MinValue == MaxValue) return MinValue;
-            byte[] buffer = Guid.NewGuid().ToByteArray();//生成字节数组
-            int iRoot = BitConverter.ToInt32(buffer, 0);//利用BitConvert方法把字节数组转换为整数
-            Random rdmNum = new Random(iRoot);//以这个生成的整数为种子
+            byte[] buffer = Guid.NewGuid().ToByteArray();
+            int iRoot = BitConverter.ToInt32(buffer, 0);
+            Random rdmNum = new Random(iRoot);
             return rdmNum.Next(MinValue, MaxValue);
         }
-        private struct KBDLLHOOKSTRUCT
-        {
-            public int vkCode;
-            int scanCode;
-            public int flags;
-            int time;
-            int dwExtraInfo;
-        }
-
-        [DllImport("kernel32.dll")]
-        static extern uint SetThreadExecutionState(uint flags);
-
-        private delegate int LowLevelKeyboardProcDelegate(int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam);
-
-        [DllImport("user32.dll")]
-        private static extern IntPtr SetWindowsHookEx(int idHook,
-            LowLevelKeyboardProcDelegate lpfn, IntPtr hMod, int dwThreadId);
-
-        [DllImport("user32.dll")]
-        private static extern bool UnhookWindowsHookEx(IntPtr hHook);
 
 
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr GetModuleHandle(IntPtr path);
+        LowLevelKeyboardProcDelegate hookProc;
 
-        LowLevelKeyboardProcDelegate hookProc; // prevent gc
 
-        const int WH_KEYBOARD_LL = 13;
 
         private static int LowLevelKeyboardProc(int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam)
         {
             if (nCode >= 0)
             {
                 if (wParam == 256 && lParam.vkCode == 27)
-                    Environment.Exit(0);
+                {
+                    if (DISPLAYCONFIG_SDC == SDC.SDC_TOPOLOGY_CLONE)
+                        SetDisplayConfig(0, IntPtr.Zero, 0, IntPtr.Zero, SDC.SDC_APPLY | DISPLAYCONFIG_SDC);
+                    if (hHook != IntPtr.Zero)
+                        UnhookWindowsHookEx(hHook);
+
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                }
+                    
             }
             return 1;
         }
