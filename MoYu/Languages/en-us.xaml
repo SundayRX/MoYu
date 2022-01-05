@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ms="clr-namespace:System;assembly=mscorlib">
+    <ms:String x:Key="Str_ModeTitle">Mode:&#160;</ms:String>
+    <ms:String x:Key="Str_ModeUpdate">WinUpdate</ms:String>
+    <ms:String x:Key="Str_ModeUpgrade">WinUpgrade</ms:String>
+    <ms:String x:Key="Str_ModeCrash">BlueScreen</ms:String>
+    <ms:String x:Key="Str_SoftwareDescribe">A Fun APP Help You Loaf At Work&#160;</ms:String>
+    <ms:String x:Key="Str_InstructionsTitle">Instructions </ms:String>
+    <ms:String x:Key="Str_InstructionsAttention">&#160;Save your file and check ESC key work good.</ms:String>
+    <ms:String x:Key="Str_InstructionsStep11">&#160;Click the animation to enjoy&#160;</ms:String>
+    <ms:String x:Key="Str_InstructionsStep12">Relax Time.</ms:String>
+    <ms:String x:Key="Str_InstructionsStep2">&#160;ESC to exit. MouseWheel change progress.</ms:String>
+    <ms:String x:Key="Str_InstructionsFeature">&#160;Adaptive Win7/10/11 and multi-screen.</ms:String>
+    <ms:String x:Key="Str_ImperfectTitle">Known Issues/Deficiencies</ms:String>
+    <ms:String x:Key="Str_Imperfect1">&#160;Cannot prevent "Ctrl+Alt+Del".</ms:String>
+    <ms:String x:Key="Str_Imperfect2">&#160;Windows 7:Text shadow display just so so.</ms:String>
+    <ms:String x:Key="Str_Contributor">Partner-JiaFeiMiao</ms:String>
+    <ms:String x:Key="Str_CodeQuote">Loading Animation Quote DinoChan.Loaf</ms:String>
+    <ms:String x:Key="Str_Copyright">Copyright © 2022-Now SundayRX</ms:String>
+
+    
+    
+
+</ResourceDictionary>

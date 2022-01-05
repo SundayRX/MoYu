@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MoYu.Imitators.Win7.Update.zh_cn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             xmlns:local="clr-namespace:MoYu.Imitators.Win7.Update"
+             mc:Ignorable="d"   Cursor="Wait" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Assets/SVG.xaml">
+            <ResourceDictionary.MergedDictionaries>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+        <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseWheel">
+            <i:InvokeCommandAction Command="{Binding MouseWheelCommand}" PassEventArgsToCommand="true"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="KeyDown">
+            <i:InvokeCommandAction Command="{Binding KeyDownCommand}" PassEventArgsToCommand="true"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Image Source="../../../Assets/Windows7Lock.jpg" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="Fant"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel.Effect>
+                <DropShadowEffect Color="#999999" ShadowDepth="1" BlurRadius="0.1" Opacity="1"/>
+            </StackPanel.Effect>
+            <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="配置 Windows Update" FontSize="23"  FontFamily="Microsoft YaHei" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="已完成 " FontSize="23"  FontFamily="Microsoft YaHei" />
+                <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="{Binding Progress}" FontSize="23"  FontFamily="Microsoft YaHei" />
+                <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="%" FontSize="23"  FontFamily="Microsoft YaHei" />
+            </StackPanel>
+            <TextBlock  HorizontalAlignment="Center"  Foreground="White" FontSize="23"  FontFamily="Microsoft YaHei"  Text="请勿关闭计算机。"    />
+        </StackPanel>
+
+        <StackPanel Margin="0,0,0,32" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <StackPanel.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="1" BlurRadius="2" Opacity="0.4"/>
+            </StackPanel.Effect>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="{StaticResource Windows7Logo }" Height="35"/>
+    
+ 
+                <TextBlock  Foreground="White" Margin="10,10,0,0"  Text="旗舰版" FontSize="23"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
