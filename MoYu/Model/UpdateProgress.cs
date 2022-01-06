@@ -154,12 +154,14 @@ namespace MoYu.Model
             {
                 if (wParam == 256 && lParam.vkCode == 27)
                 {
-                    if (DISPLAYCONFIG_SDC == SDC.SDC_TOPOLOGY_CLONE)
-                        SetDisplayConfig(0, IntPtr.Zero, 0, IntPtr.Zero, SDC.SDC_APPLY | DISPLAYCONFIG_SDC);
                     if (hHook != IntPtr.Zero)
                         UnhookWindowsHookEx(hHook);
-
-                    System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    if (DISPLAYCONFIG_SDC == SDC.SDC_TOPOLOGY_CLONE)
+                    {
+                        SetDisplayConfig(0, IntPtr.Zero, 0, IntPtr.Zero, SDC.SDC_APPLY | DISPLAYCONFIG_SDC);
+                        System.Diagnostics.Process.GetCurrentProcess().Kill();
+                    }
+                    Environment.Exit(0);
                 }
                     
             }

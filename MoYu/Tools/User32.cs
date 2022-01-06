@@ -93,12 +93,12 @@ namespace MoYu.Tools
             DISPLAYCONFIG_TOPOLOGY_EXTEND = 0x4u,
             DISPLAYCONFIG_TOPOLOGY_EXTERNAL = 0x8u
         }
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto,Size =72)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto,Size =1000)]
         public struct DISPLAYCONFIG_PATH_INFO
         {
         }
 
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto, Pack = 4,Size =64)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto, Pack = 4,Size =1000)]
         public struct DISPLAYCONFIG_MODE_INFO
         {
         }
@@ -108,8 +108,10 @@ namespace MoYu.Tools
         [DllImport("user32.dll")]
         public static extern uint QueryDisplayConfig(QDC flags, ref uint numPathArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] DISPLAYCONFIG_PATH_INFO[] pathArray, ref uint numModeInfoArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 3)] DISPLAYCONFIG_MODE_INFO[] modeInfoArray, IntPtr currentTopologyId = default(IntPtr));
        [DllImport("user32.dll")]
-         public static extern uint QueryDisplayConfig(QDC flags, ref uint numPathArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] DISPLAYCONFIG_PATH_INFO[] pathArray, ref uint numModeInfoArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 3)] DISPLAYCONFIG_MODE_INFO[] modeInfoArray, out DISPLAYCONFIG_TOPOLOGY_ID currentTopologyId);
-        
+        public static extern uint QueryDisplayConfig(QDC flags, ref uint numPathArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] DISPLAYCONFIG_PATH_INFO[] pathArray, ref uint numModeInfoArrayElements, [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 3)] DISPLAYCONFIG_MODE_INFO[] modeInfoArray, out DISPLAYCONFIG_TOPOLOGY_ID currentTopologyId);
+
+        [DllImport("user32.dll")]
+        public static extern uint QueryDisplayConfig(QDC flags, ref uint numPathArrayElements, IntPtr pathArray, ref uint numModeInfoArrayElements,IntPtr modeInfoArray, out DISPLAYCONFIG_TOPOLOGY_ID currentTopologyId);
         public static uint QueryDisplayConfig(QDC flags, out DISPLAYCONFIG_PATH_INFO[] pathArray, out DISPLAYCONFIG_MODE_INFO[] modeInfoArray, out DISPLAYCONFIG_TOPOLOGY_ID currentTopologyId)
         {
             uint displayConfigBufferSizes;
@@ -133,7 +135,20 @@ namespace MoYu.Tools
             while (displayConfigBufferSizes == 122u);
             return displayConfigBufferSizes;
         }
-
+        public static uint GetCurrentScreenTopology(out DISPLAYCONFIG_TOPOLOGY_ID currentTopologyId)
+        {
+            uint displayConfigBufferSizes;
+            displayConfigBufferSizes = GetDisplayConfigBufferSizes(QDC.QDC_DATABASE_CURRENT, out uint numPathArrayElements, out uint numModeInfoArrayElements);
+            DISPLAYCONFIG_PATH_INFO[] pathArray = new DISPLAYCONFIG_PATH_INFO[(displayConfigBufferSizes == 0) ? numPathArrayElements : 0];
+            DISPLAYCONFIG_MODE_INFO[] modeInfoArray = new DISPLAYCONFIG_MODE_INFO[(displayConfigBufferSizes == 0) ? numModeInfoArrayElements : 0];
+            currentTopologyId =0u;
+            if (displayConfigBufferSizes != 0)
+            {
+                return displayConfigBufferSizes;
+            }
+            QueryDisplayConfig(QDC.QDC_DATABASE_CURRENT, ref numPathArrayElements, pathArray, ref numModeInfoArrayElements,  modeInfoArray, out currentTopologyId);
+            return displayConfigBufferSizes;
+        }
 
 
         public delegate int LowLevelKeyboardProcDelegate(int nCode, int wParam, ref KBDLLHOOKSTRUCT lParam);
