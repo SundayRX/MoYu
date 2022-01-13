@@ -69,9 +69,9 @@
 
                 </Grid>
                 <StackPanel Margin="15,-5,0,0">
-                    <TextBlock Text="如需此問題與可能修正的詳細咨詢，請瀏覽" Foreground="White" FontSize="18"/>
+                    <TextBlock Text="如需此問題與可能修正的詳細資訊，請瀏覽" Foreground="White" FontSize="18"/>
                     <TextBlock Margin="0,5,0,0" Text="https://www.windows.com/stopcode" Foreground="White" FontSize="16"/>
-                    <TextBlock Margin="0,20,0,0" Text="致電支援人員時，請提供此咨詢:" Foreground="White" FontSize="16"/>
+                    <TextBlock Margin="0,20,0,0" Text="致電支援人員時，請提供此資訊:" Foreground="White" FontSize="16"/>
                     <TextBlock Margin="0,10,0,0" Text="停止代碼: CRITICAL PROCESS DIED" Foreground="White" FontSize="16"/>
                 </StackPanel>
 

@@ -25,7 +25,7 @@
             <Controls:Loading5 Grid.Row="0" Margin="0,-10,0,0" Width="46" Height="46" Foreground="White" />
             <StackPanel Grid.Row="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="正在安装 " FontSize="23"  />
+                    <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="正在安裝 " FontSize="23"  />
                     <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="{Binding Progress}" FontSize="23"  />
                     <TextBlock  HorizontalAlignment="Center" Foreground="White" Text="%" FontSize="23" />
                 </StackPanel>
