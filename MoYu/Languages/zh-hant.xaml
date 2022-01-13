@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ms="clr-namespace:System;assembly=mscorlib">
+    <ms:String x:Key="Str_ModeTitle">模式切換：</ms:String>
+    <ms:String x:Key="Str_ModeUpdate">系統更新</ms:String>
+    <ms:String x:Key="Str_ModeUpgrade">系統升級</ms:String>
+    <ms:String x:Key="Str_ModeCrash">系統藍螢</ms:String>
+    <ms:String x:Key="Str_SoftwareDescribe">一款協助您在工作時摸魚的歡樂軟體&#160;</ms:String>
+    <ms:String x:Key="Str_InstructionsTitle">使用說明</ms:String>
+    <ms:String x:Key="Str_InstructionsAttention">&#160;確保工作文件已儲存，確認 [ESC] 鍵正常運作</ms:String>
+    <ms:String x:Key="Str_InstructionsStep11">&#160;選擇模式，然後按一下左側動畫開始享受</ms:String>
+    <ms:String x:Key="Str_InstructionsStep12">摸魚時光</ms:String>
+    <ms:String x:Key="Str_InstructionsStep2">&#160;按一下 [ESC] 鍵結束，滾動滑鼠滾輪以變更目前進度</ms:String>
+    <ms:String x:Key="Str_InstructionsFeature">&#160;自動對應 Win7/10(主題色彩)/11 支援延伸螢幕顯示</ms:String>
+    <ms:String x:Key="Str_ImperfectTitle">已知問題/不足(自行嘗試實現新功能？)</ms:String>
+    <ms:String x:Key="Str_Imperfect1">&#160;不能阻止Ctrl+Alt+Del弹出</ms:String>
+    <ms:String x:Key="Str_Imperfect2">&#160;Win7 字型陰影顯示一般，鍵盤按鈕尚未實現</ms:String>
+    <ms:String x:Key="Str_Contributor">協作</ms:String>
+    <ms:String x:Key="Str_Contributor1">鉀肥貓</ms:String>
+    <ms:String x:Key="Str_Contributor2">齊一</ms:String>
+    <ms:String x:Key="Str_CodeQuote">載入動畫基於 DinoChan.Loaf</ms:String>
+    <ms:String x:Key="Str_Copyright">Copyright © 2022-現金 SundayRX</ms:String>
+
+    
+    
+
+</ResourceDictionary>

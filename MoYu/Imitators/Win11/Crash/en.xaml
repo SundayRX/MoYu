@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="MoYu.Imitators.Win11.Crash.en"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             xmlns:local="clr-namespace:MoYu.Imitators.Win11.Crash"
+             mc:Ignorable="d"  FontFamily="Microsoft YaHei"  UseLayoutRounding="False"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseWheel">
+            <i:InvokeCommandAction Command="{Binding MouseWheelCommand}" PassEventArgsToCommand="true"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="KeyDown">
+            <i:InvokeCommandAction Command="{Binding KeyDownCommand}" PassEventArgsToCommand="true"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <ResourceDictionary Source="../../../Assets/SVG.xaml">
+            <ResourceDictionary.MergedDictionaries>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black">
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="185*"/>
+
+            <RowDefinition Height="525*"/>
+            <RowDefinition Height="118*"/>
+            <RowDefinition Height="262*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="234*"/>
+
+            <ColumnDefinition Width="1686*"/>
+        </Grid.ColumnDefinitions>
+
+        <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,-55,0,0" Width="950" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="430"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" >
+                    <TextBlock Text=":(" FontSize="170" Foreground="White"/>
+                    <TextBlock Margin="0,16,0,0" Text="Your device ran into a problem and needs to restart." FontSize="36" Foreground="White" FontWeight="Light"/>
+                    <TextBlock Margin="0,10,0,0" Text="We're just collecting some error info, and then you can" FontSize="36" Foreground="White" FontWeight="Light"/>
+                    <TextBlock Margin="0,5,0,0" Text="restart." FontSize="36" Foreground="White" FontWeight="Light"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,3,0,0" VerticalAlignment="Top">
+                    <TextBlock  Text="{Binding Progress}" FontSize="30" Foreground="White" FontWeight="Light"/>
+                    <TextBlock  Text="% complete" FontSize="30" Foreground="White" FontWeight="Light"/>
+                </StackPanel>
+
+
+            </Grid>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Top">
+                <Grid Height="128" Width="128">
+                    <Border Background="White"/>
+                    <Image Source="{StaticResource QRCode2}" />
+
+                </Grid>
+                <StackPanel Margin="15,-5,0,0">
+                    <TextBlock Text="For more information about this issue and possible fixes, visit" Foreground="White" FontSize="20" FontWeight="Light"/>
+                    <TextBlock Margin="0,5,0,0" Text="https://www.windows.com/stopcode" Foreground="White" FontSize="20" FontWeight="Light"/>
+                    <TextBlock Margin="0,20,0,0" Text="If you call a support person, give them this info:" Foreground="White" FontSize="16" FontWeight="Light"/>
+                    <TextBlock Margin="0,10,0,0" Text="Stop code: CRITICAL_PROCESS_DIED" Foreground="White" FontSize="16" FontWeight="Light"/>
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </Viewbox>
+
+
+
+
+    </Grid>
+</UserControl>
