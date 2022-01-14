@@ -17,7 +17,7 @@
     <ms:String x:Key="Str_Imperfect2">&#160;Windows 7 更新畫面字型陰影效果目前不盡人意、未實現左上角鍵盤按鈕顯示。</ms:String>
     <ms:String x:Key="Str_Contributor">協作</ms:String>
     <ms:String x:Key="Str_Contributor1">鉀肥貓</ms:String>
-    <ms:String x:Key="Str_Contributor2">chiyi4869 (齊一)</ms:String>
+    <ms:String x:Key="Str_Contributor2">chiyi4869</ms:String>
     <ms:String x:Key="Str_CodeQuote">載入動畫基於 DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-現今 SundayRX</ms:String>
 

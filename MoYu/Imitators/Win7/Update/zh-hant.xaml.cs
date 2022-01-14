@@ -18,9 +18,9 @@ namespace MoYu.Imitators.Win7.Update
     /// <summary>
     /// Update5.xaml 的交互逻辑
     /// </summary>
-    public partial class zh_hans : UserControl
+    public partial class zh_hant : UserControl
     {
-        public zh_hans()
+        public zh_hant()
         {
             InitializeComponent();
         }

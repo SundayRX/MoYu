@@ -17,7 +17,7 @@
     <ms:String x:Key="Str_Imperfect2">&#160;Win7下字体阴影显示一般  键盘按钮未实现</ms:String>
     <ms:String x:Key="Str_Contributor">协作</ms:String>
     <ms:String x:Key="Str_Contributor1">钾肥猫</ms:String>
-    <ms:String x:Key="Str_Contributor2">chiyi4869 (齐一)</ms:String>
+    <ms:String x:Key="Str_Contributor2">chiyi4869</ms:String>
     <ms:String x:Key="Str_CodeQuote">加载动画基于DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-现在 SundayRX</ms:String>
 

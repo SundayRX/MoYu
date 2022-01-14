@@ -17,7 +17,7 @@
     <ms:String x:Key="Str_Imperfect2">&#160;Windows 7:Text shadow display just so so.</ms:String>
     <ms:String x:Key="Str_Contributor">Partner</ms:String>
     <ms:String x:Key="Str_Contributor1">JiaFeiMiao</ms:String>
-    <ms:String x:Key="Str_Contributor2">chiyi4869 (Yi Chi)</ms:String>
+    <ms:String x:Key="Str_Contributor2">chiyi4869</ms:String>
     <ms:String x:Key="Str_CodeQuote">Loading Animation Quote DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-Now SundayRX</ms:String>
 
