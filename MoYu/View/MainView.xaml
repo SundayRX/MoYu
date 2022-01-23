@@ -13,9 +13,6 @@
     </WindowChrome.WindowChrome>
     <Window.Resources>
         <ResourceDictionary Source="../Assets/SVG.xaml">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Languages/zh-hans.xaml" />
-            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Border Background="White" Margin="10" CornerRadius="10">
@@ -24,8 +21,9 @@
         </Border.Effect>
         <Grid>
             <TextBlock Margin="20,5,0,0" Text="MoYu" FontSize="40" Foreground="#0071BC" FontWeight="Bold"/>
-            <TextBlock x:Name="Close" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,10,15,0" Text="×" FontSize="30" Foreground="#FF0033" TextAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" MouseUp="Close_MouseUp" />
 
+            <TextBlock x:Name="Close" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,10,15,0" Text="×" FontSize="30" Foreground="#FF0033" TextAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" MouseUp="Close_MouseUp" />
+            <Image x:Name="Help"  WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,19,45,0"  Source="{StaticResource Bulb2DrawingImage}" Height="23" Width="23" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" MouseUp="Help_MouseUp" />
 
             <StackPanel Margin="20,62,0,0" Orientation="Horizontal">
                 <TextBlock Text="{DynamicResource Str_ModeTitle}" FontSize="13" FontWeight="Bold" Foreground="#0071BC"/>
@@ -72,7 +70,7 @@
                         <TextBlock  Text="" FontSize="13" Foreground="#333333"/>
                         <TextBlock  Text="{DynamicResource Str_ImperfectTitle}" FontSize="13" Foreground="#FF9900" FontWeight="Bold"/>
                         <TextBlock  Text="{DynamicResource Str_Imperfect1}" FontSize="13" Foreground="#333333"/>
-                        <TextBlock  Text="{DynamicResource Str_Imperfect2}"  FontSize="13" Foreground="#333333"/>
+                        <TextBlock  Text="{DynamicResource Str_Imperfect2}"  FontSize="13" Foreground="#333333" TextWrapping="Wrap"/>
                     </StackPanel>
                 </Viewbox>
 

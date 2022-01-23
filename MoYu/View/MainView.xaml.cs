@@ -25,44 +25,10 @@ namespace MoYu.View
     public partial class MainView : Window
     {
         private int Mode=1;
-        string LocalLanguage = Thread.CurrentThread.CurrentCulture.Name.ToLower();
-        string DefaultLanguage = "zh-hans";
         public MainView()
         {
             InitializeComponent();
             this.Version.Text =Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            string[] Temp=LocalLanguage.Split('-');
-            if (Temp.Length >= 1)
-            {
-                if (Temp[0] == "zh")
-                {
-                    if (Temp.Length >= 2)
-                    {
-                        if (Temp[1] == "hans" || Temp[1]=="cn"|| Temp[1]=="sg"|| Temp[1]=="my") LocalLanguage = "zh-hans";
-                        else if (Temp[1] == "hant" || Temp[1]=="tw"|| Temp[1]=="hk"|| Temp[1]=="mo") LocalLanguage = "zh-hant";
-                        else LocalLanguage = "zh-hans";
-                    }
-                    else LocalLanguage = "zh-hans";
-                }
-                else LocalLanguage = "en";
-            }
-            else
-                LocalLanguage = DefaultLanguage;
-
-
-            if(LocalLanguage!="zh-hans")
-            {
-                
-                ResourceDictionary LanguageDictionary = (ResourceDictionary)Application.LoadComponent(new System.Uri($"../Languages/{LocalLanguage}.xaml", System.UriKind.Relative));
-                if (LanguageDictionary != null)
-                {
-                    this.Resources.MergedDictionaries.RemoveAt(0);
-                    this.Resources.MergedDictionaries.Add(LanguageDictionary);
-                }
-                
-            }
-
 
         }
 
@@ -108,7 +74,7 @@ namespace MoYu.View
             Control? Imitator = null;
             Model.UpdateProgress updateProgress= new Model.UpdateProgress();
 
-            int? windowsVersion = GetWindowsMajorVersion();
+            int? windowsVersion = Program.WindowsVersion;
 
 
             string ImitatorXAMLRoot = "../Imitators";
@@ -121,17 +87,25 @@ namespace MoYu.View
             else if (windowsVersion == 11) PlatformXAMLPath = "Win11";
             else PlatformXAMLPath = "Win10";
 
+
             if (Mode == 1) ModeXAMLPath = "Update";
             else if(Mode == 2) ModeXAMLPath = "Upgrade";
             else if(Mode == 3) ModeXAMLPath = "Crash";
             else ModeXAMLPath = "Update";
 
-             LanguageXAMLPath = LocalLanguage + ".xaml";
+             LanguageXAMLPath = Program.LocalLanguage + ".xaml";
 
 
             string ImitatorXAMLFullPath = System.IO.Path.Combine(ImitatorXAMLRoot,PlatformXAMLPath,ModeXAMLPath,LanguageXAMLPath);
 
-            Imitator = (UserControl)Application.LoadComponent(new System.Uri(ImitatorXAMLFullPath, System.UriKind.Relative));
+            try
+            {
+                Imitator = (UserControl)Application.LoadComponent(new System.Uri(ImitatorXAMLFullPath, System.UriKind.Relative));
+            }
+            catch (Exception)
+            {
+                Imitator = null;
+            }
 
             if (Imitator == null)
             {
@@ -187,69 +161,26 @@ namespace MoYu.View
 
         }
 
-        private static int? GetWindowsMajorVersionByWMI()
-        {
-            try
-            {
-                ManagementObjectSearcher os_searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-                foreach (ManagementObject mobj in os_searcher.Get())
-                {
-                    string? Temp = mobj["Caption"].ToString();
 
-                    if (Temp == null) return null;
-                    string[] Sub = Temp.Split(' ');
-
-                    if (int.TryParse(Sub[2], out int value))
-                        return value;
-                    else return null;
-                }
-            }
-            catch (Exception) { }
-            return null;
-        }
-        private static int? GetWindowsMajorVersionByEnvironment()
-        {
-            OperatingSystem operatingSystem = Environment.OSVersion;
-            int Major = operatingSystem.Version.Major;
-            int Minor = operatingSystem.Version.Minor;
-            int Build = operatingSystem.Version.Build;
-            if (Major == 6)
-            {
-                if (Minor == 1)
-                    return 7;
-                else if (Minor == 2 || Minor == 3)
-                    return 8;
-            }
-            else if (Major == 10)
-            {
-                return 10;
-            }
-
-            return null;
-        }
-
-        private static int? GetWindowsMajorVersion()
-        {
-            int? Major = GetWindowsMajorVersionByWMI();
-            if (Major != null)
-                return Major;
-            else
-                return GetWindowsMajorVersionByEnvironment();
-
-        }
 
         private void ModeSwitch_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
             if (++Mode >= 4) Mode = 1;
-
             if (Mode == 1)
-                ModeText.Text = (string)Resources["Str_ModeUpdate"];
+                ModeText.Text = (string) FindResource("Str_ModeUpdate");
             else  if (Mode == 2)
-                ModeText.Text =  (string)Resources["Str_ModeUpgrade"];
+                ModeText.Text =  (string)FindResource("Str_ModeUpgrade");
             else if (Mode == 3)
-                ModeText.Text =  (string)Resources["Str_ModeCrash"];
+                ModeText.Text =  (string)FindResource("Str_ModeCrash");
 
+        }
+
+        private void Help_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            AboutView aboutView = new AboutView();
+            aboutView.Owner = this;
+            aboutView.ShowDialog();
         }
     }
 }

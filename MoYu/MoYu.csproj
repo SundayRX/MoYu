@@ -10,7 +10,12 @@
 	<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
 	<Deterministic>False</Deterministic>
 	  <ApplicationIcon>MoYu.ico</ApplicationIcon>
+	  <StartupObject></StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Remove="App.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Assets\MoYu.gif" />
@@ -22,6 +27,12 @@
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="System.Management" Version="6.0.0" />
     <PackageReference Include="XamlAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <ItemGroup>

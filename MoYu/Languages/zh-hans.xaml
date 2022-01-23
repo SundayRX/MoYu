@@ -21,7 +21,26 @@
     <ms:String x:Key="Str_CodeQuote">加载动画基于DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-现在 SundayRX</ms:String>
 
+    <ms:String x:Key="Str_HelpTitle1">操作系统及语言支持</ms:String>
+    <ms:String x:Key="Str_HelpContent11">右表列出了对不同操作系统及语言支持的模式</ms:String>
+    <ms:String x:Key="Str_HelpContent12">对于暂不支持的模式将使用Windows 10样式</ms:String>
+    <ms:String x:Key="Str_HelpTitle2">自适应显示背景</ms:String>
+    <ms:String x:Key="Str_HelpContent21">右表展示了在不同操作系统及模式下背景的显示内容</ms:String>
+    <ms:String x:Key="Str_HelpTitle3">支持多屏幕投影</ms:String>
+    <ms:String x:Key="Str_HelpContent31">右表列出了在不同投影模式下第二屏幕的显示内容</ms:String>
+    <ms:String x:Key="Str_HelpTableMode">模式支持</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground">显示背景</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground1">固定图片</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground2">跟随主题色</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground3">固定颜色</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen">投影模式</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol1">拓展</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol2">复制</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol3">仅第二屏幕</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen1">完全黑屏</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen2">复制主屏</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen3">作为主屏</ms:String>
     
     
-
+    
 </ResourceDictionary>

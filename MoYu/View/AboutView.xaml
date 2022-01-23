@@ -1,0 +1,411 @@
+﻿<Window x:Class="MoYu.View.AboutView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoYu.View" WindowStyle="None"  ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" Background="Transparent" AllowsTransparency="True"
+        mc:Ignorable="d"
+        Title="Help" Height="590" Width="850">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0,0,0,0.1" CaptionHeight="50"/>
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <ResourceDictionary Source="../Assets/SVG.xaml">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <Thickness x:Key="TableTitleMargin"  Left="1" Top="1" Right="1" Bottom="1" />
+                    <Thickness x:Key="TableColumnMargin"  Left="0" Top="1" Right="1" Bottom="1" />
+                    <Thickness x:Key="TableRowMargin"  Left="1" Top="0" Right="1" Bottom="1" />
+                    <Thickness x:Key="TableCellMargin"  Left="0" Top="0" Right="1" Bottom="1" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+
+
+        </ResourceDictionary>
+        
+    </Window.Resources>
+    <Border Background="White" Margin="10,10,10,10" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect   BlurRadius="10" Color="Black"  Opacity="0.5" RenderingBias="Performance" ShadowDepth="0"/>
+        </Border.Effect>
+        <Grid>
+            <TextBlock x:Name="Close" WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,5,15,0" Text="×" FontSize="30" Foreground="#FF0033" TextAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Cursor="Hand" MouseUp="Close_MouseUp" />
+            <Grid Margin="35,45,35,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock Text="{DynamicResource Str_HelpTitle1}" FontSize="20" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" Margin="10,7,0,0" >
+
+                            <TextBlock  Text="{DynamicResource Str_ModeUpdate}" FontSize="13" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"/>
+                            <Grid Margin="2,0,10,0">
+                                <Image x:Name="UpdateError" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" Visibility="Collapsed" />
+                                <Image x:Name="UpdateCorrect"  Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20"  />
+                            </Grid>
+
+                            <TextBlock  Text="{DynamicResource Str_ModeUpgrade}" FontSize="13" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"/>
+                            <Grid Margin="2,0,10,0">
+                                <Image x:Name="UpgradeError" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" Visibility="Collapsed" />
+                                <Image x:Name="UpgradeCorrect"  Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20"  />
+                            </Grid>
+
+                            <TextBlock  Text="{DynamicResource Str_ModeCrash}" FontSize="13" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold"/>
+                            <Grid Margin="2,0,5,0">
+                                <Image x:Name="CrashError" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" Visibility="Collapsed" />
+                                <Image x:Name="CrashCorrect"  Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </StackPanel>
+                        <TextBlock Margin="10,7,0,0" Text="{DynamicResource Str_HelpContent11}" FontSize="13" TextWrapping="Wrap"/>
+                        <TextBlock Margin="10,5,0,0" Text="{DynamicResource Str_HelpContent12}" FontSize="13" TextWrapping="Wrap"/>
+
+
+
+
+                    </StackPanel>
+
+                    <Grid Grid.Column="1" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0"  Grid.Row="0" BorderThickness="{StaticResource TableTitleMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableMode}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 7" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 11" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="1" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="zh-hans" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="2" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="zh-hant" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="3" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="en" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+
+                        <Border Grid.Column="1"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+
+
+
+                        <Border Grid.Column="1"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="1" Source="{StaticResource ErrorDrawingImage}" Height="20" Width="20" />
+                                <Image Grid.Column="2" Source="{StaticResource CorrectDrawingImage}" Height="20" Width="20" />
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock Text="{DynamicResource Str_HelpTitle2}" FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Margin="10,10,0,0" Text="{DynamicResource Str_HelpContent21}" FontSize="13" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <Grid Grid.Column="1" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0"  Grid.Row="0" BorderThickness="{StaticResource TableTitleMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableBackground}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 7" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 10" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="Windows 11" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="1" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeUpdate}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="2" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeUpgrade}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="3" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeCrash}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableBackground1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableBackground2}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                                <Rectangle Height="10" Width="10" Fill="Black"  VerticalAlignment="Center"/>
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Str_HelpTableBackground3}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Grid.Column="1"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableBackground1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableBackground2}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                                <Rectangle Height="10" Width="10" Fill="Black"  VerticalAlignment="Center"/>
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Str_HelpTableBackground3}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+
+
+                        <Border Grid.Column="1"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                                <Rectangle Height="10" Width="10" Fill="#000080"  VerticalAlignment="Center"/>
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Str_HelpTableBackground3}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                                <Rectangle Height="10" Width="10" Fill="#1071AA"  VerticalAlignment="Center"/>
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Str_HelpTableBackground3}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                                <Rectangle Height="10" Width="10" Fill="Black"  VerticalAlignment="Center"/>
+                                <TextBlock Margin="5,0,0,0" Text="{DynamicResource Str_HelpTableBackground3}"  VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="400"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock Text="{DynamicResource Str_HelpTitle3}" FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Margin="10,10,0,0" Text="{DynamicResource Str_HelpContent31}" FontSize="13" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <Grid Grid.Column="1" HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0"  Grid.Row="0" BorderThickness="{StaticResource TableTitleMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" />
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreenCol1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreenCol2}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="0" BorderThickness="{StaticResource TableColumnMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreenCol3}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="1" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeUpdate}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="2" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeUpgrade}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="0"  Grid.Row="3" BorderThickness="{StaticResource TableRowMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_ModeCrash}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="1"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen2}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="1" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen3}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+
+                        </Border>
+
+                        <Border Grid.Column="1"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen2}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="2" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen3}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+
+
+
+                        <Border Grid.Column="1"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="2"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+                        <Border Grid.Column="3"  Grid.Row="3" BorderThickness="{StaticResource TableCellMargin}" BorderBrush="Black">
+                            <TextBlock Text="{DynamicResource Str_HelpTableSecondScreen3}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+                        </Border>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+</Window>

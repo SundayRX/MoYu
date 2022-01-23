@@ -21,7 +21,25 @@
     <ms:String x:Key="Str_CodeQuote">Loading Animation Quote DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-Now SundayRX</ms:String>
 
-    
+    <ms:String x:Key="Str_HelpTitle1">OS And Language Support</ms:String>
+    <ms:String x:Key="Str_HelpContent11">The right table lists supported mode  for different operating systems and languages.</ms:String>
+    <ms:String x:Key="Str_HelpContent12">Windows 10 styles will be used for modes that are not currently supported.</ms:String>
+    <ms:String x:Key="Str_HelpTitle2">Adaptive Display Background</ms:String>
+    <ms:String x:Key="Str_HelpContent21">The right table shows what the background displays in different operating systems and modes.  </ms:String>
+    <ms:String x:Key="Str_HelpTitle3">Supports Multi-Screen Projection</ms:String>
+    <ms:String x:Key="Str_HelpContent31">The right table shows what the second screen looks like in different projection modes.</ms:String>
+    <ms:String x:Key="Str_HelpTableMode">Mode</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground">Background</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground1">Fixed Picture</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground2">Theme Color</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground3">Fixed Color</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen">Projection Mode</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol1">Extend</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol2">Dupliacte</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol3">Only Second</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen1">Black Screen</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen2">Copy Screen</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen3">Main Screen</ms:String>
     
 
 </ResourceDictionary>
