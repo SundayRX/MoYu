@@ -21,24 +21,24 @@
     <ms:String x:Key="Str_CodeQuote">載入動畫基於 DinoChan.Loaf</ms:String>
     <ms:String x:Key="Str_Copyright">Copyright © 2022-現今 SundayRX</ms:String>
 
-    <ms:String x:Key="Str_HelpTitle1">操作系统及语言支持</ms:String>
-    <ms:String x:Key="Str_HelpContent11">右表列出了对不同操作系统及语言支持的模式</ms:String>
-    <ms:String x:Key="Str_HelpContent12">对于暂不支持的模式将使用Windows 10样式</ms:String>
-    <ms:String x:Key="Str_HelpTitle2">自适应显示背景</ms:String>
-    <ms:String x:Key="Str_HelpContent21">右表展示了在不同操作系统及模式下背景的显示内容</ms:String>
-    <ms:String x:Key="Str_HelpTitle3">支持多屏幕投影</ms:String>
-    <ms:String x:Key="Str_HelpContent31">右表列出了在不同投影模式下第二屏幕的显示内容</ms:String>
-    <ms:String x:Key="Str_HelpTableMode">模式支持</ms:String>
-    <ms:String x:Key="Str_HelpTableBackground">显示背景</ms:String>
-    <ms:String x:Key="Str_HelpTableBackground1">固定图片</ms:String>
-    <ms:String x:Key="Str_HelpTableBackground2">跟随主题色</ms:String>
-    <ms:String x:Key="Str_HelpTableBackground3">固定颜色</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreen">投影模式</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreenCol1">拓展</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreenCol2">复制</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreenCol3">仅第二屏幕</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreen1">完全黑屏</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreen2">复制主屏</ms:String>
-    <ms:String x:Key="Str_HelpTableSecondScreen3">作为主屏</ms:String>
+    <ms:String x:Key="Str_HelpTitle1">作業系統和支援語言</ms:String>
+    <ms:String x:Key="Str_HelpContent11">右表列出了針對不同作業系統和支援語言所提供的模式</ms:String>
+    <ms:String x:Key="Str_HelpContent12">對於暫不支援的模式將以 Windows 10 版面顯示</ms:String>
+    <ms:String x:Key="Str_HelpTitle2">自動化背景顯示</ms:String>
+    <ms:String x:Key="Str_HelpContent21">右表列出了針對不同作業系統和模式下，所提供的背景模式</ms:String>
+    <ms:String x:Key="Str_HelpTitle3">支援多螢顯示</ms:String>
+    <ms:String x:Key="Str_HelpContent31">右表列出了針對不同顯示模式下，次螢幕所顯示的內容</ms:String>
+    <ms:String x:Key="Str_HelpTableMode">支援模式</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground">顯示背景</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground1">固定圖片</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground2">使用主題色彩</ms:String>
+    <ms:String x:Key="Str_HelpTableBackground3">固定色彩</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen">顯示模式</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol1">延伸</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol2">同步顯示</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreenCol3">僅次螢幕</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen1">完全黑畫面</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen2">同步主螢幕</ms:String>
+    <ms:String x:Key="Str_HelpTableSecondScreen3">作為主螢幕</ms:String>
 
 </ResourceDictionary>
