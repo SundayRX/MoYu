@@ -5,7 +5,7 @@ using System.Windows;
 [assembly: AssemblyProduct("MoYu")]
 [assembly: AssemblyCompany("SundayRX Personal Studio")]
 [assembly: AssemblyCopyright("Copyright © 2022-现在 SundayRX All Rights Reserved.")]
-[assembly: AssemblyVersion("1.6.*")]
+[assembly: AssemblyVersion("1.7.*")]
 
 [assembly: ThemeInfo(
     ResourceDictionaryLocation.None, //where theme specific resource dictionaries are located
